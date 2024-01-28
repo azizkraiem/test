@@ -1,0 +1,24 @@
+<table border="4">    
+<tr>
+<td>Ref</td>
+<td>Title</td>
+<td>Publication Date</td>
+<td>Is Published</td>
+<td>Author</td>
+<td>email</td>
+<td>Modifier</td>
+<td>delete</td>
+</tr>
+{%for i in base_books%}
+<tr>
+<td>{{i.ref}}</td>
+<td>{{i.title}}</td>
+<td>{{i.publicationdate|date("Y-m-d")}}</td>
+<td>{{i.published}}</td>
+<td>{{i.Author.username}}</td>
+<td>{{i.Author.email}}</td>
+<td><a href="{{ path('modifierbook', {'id': i.ref}) }}">Edit</a></td>
+<td><a href="{{ path('deletebook', {'id': i.ref}) }}">delete</a></td>
+</tr>
+{% endfor %}
+</table>

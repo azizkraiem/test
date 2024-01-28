@@ -1,0 +1,20 @@
+{%if base_authors|length>0 and base_authors is defined%}
+<table border="4">
+<tr>
+<td>Id</td>
+ <td>username</td>
+ <td>email</td>
+ <td>Edit</td>
+ <td>Delete</td>
+ 
+</tr>
+{%for author in base_authors%}
+<tr>
+<td>{{author.id}}</td>
+<td>{{author.username}} </td>
+<td>{{author.email}}</td>
+<td><a href="{{ path('modifierauthor', {'id': author.id}) }}">Edit</a></td>
+<td><a href="{{ path('deleteauthor', {'id': author.id}) }}">Delete</a></td>
+</tr>
+{%endfor%}
+{%endif%}
